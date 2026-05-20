@@ -19,12 +19,18 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
+// My custom colors
+static const char bg_color_bar[]    = "#000000";
+static const char bg_bar_active[]   = "#001f00";
+static const char text_color[]      = "#2dd602";
 static const char active_color[]    = "#d9d9d9";
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  active_color  },
+	/*               fg          bg             border   */
+	[SchemeNorm] = { text_color, bg_color_bar,  col_gray2     },
+	[SchemeSel]  = { text_color, bg_bar_active, active_color  },
 };
+//Original value
+//	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 
 typedef struct {
 	const char *name;
