@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=dwm
+Comment=the dynamic tiling window manager
+Exec=/home/excalibur/.xinitrc
+Icon=dwm
+Type=XSession
