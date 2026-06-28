@@ -7,7 +7,11 @@
 * picom.
 * feh.
 * flameshot.
+* boomer.
 * dwmblocks(compile it from the folder).
+
+> If you don't want boomer then you can just get rid of it
+in dwm(config.def.h) line number 92 and 99.
 
 ### Warning:
 > Use the installation scripts at your own risk. I never
