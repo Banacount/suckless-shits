@@ -11,7 +11,8 @@ static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 0;        /* 0 means bottom bar */ static const char *fonts[]          = { "monospace:size=10" };
+static const int topbar             = 0;        /* 0 means bottom bar */ 
+static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -19,10 +20,10 @@ static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
 // My custom colors
-static const char bg_color_bar[]    = "#000000";
-static const char bg_bar_active[]   = "#001f00";
-static const char text_color[]      = "#2dd602";
-static const char active_color[]    = "#007a21";
+static const char bg_color_bar[]    = "#11191f";
+static const char bg_bar_active[]   = "#0d4459";
+static const char text_color[]      = "#ffffff";
+static const char active_color[]    = "#ffffff";
 static const char *colors[][3]      = {
 	/*               fg          bg             border   */
 	[SchemeNorm] = { text_color, bg_color_bar,  col_gray2     },
