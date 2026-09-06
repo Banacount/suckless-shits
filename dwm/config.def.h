@@ -97,6 +97,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = roficmd    } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd    } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshot } },
+	{ 0,							XK_Print,  spawn,          {.v = screenshot } },
 	{ MODKEY|ShiftMask,             XK_z,      spawn,          {.v = boomer		} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_Tab,    focusstack,     {.i = +1 } },
