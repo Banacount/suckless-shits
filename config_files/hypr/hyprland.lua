@@ -271,8 +271,9 @@ hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + R", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
-hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("hyprshot -m region"))
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("hyprshot -m region --freeze"))
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ action = "toggle" }))
+hl.bind(mainMod .. " + A", hl.dsp.window.fullscreen({ action = "toggle", mode = "maximized" }))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))

@@ -1,0 +1,17 @@
+gtk-titlebar-hide-when-maximized     = true
+window-decoration                    = none
+
+# colors
+background                           = 000000
+cursor-color                         = b3ff00
+background-opacity = 0.9
+background-image-position			 = center
+
+# fonts
+font-family                          = "Iosevka Nerd Font"
+font-size                            = 10
+
+# miscs
+cursor-style-blink = true
+cursor-style = block
+shell-integration-features = no-cursor
