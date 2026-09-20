@@ -1,0 +1,6 @@
+frame = "full"
+maximized = true
+
+[font]
+normal = ["Iosevka NF"]
+size = 11.0

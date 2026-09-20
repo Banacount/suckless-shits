@@ -1,0 +1,22 @@
+gtk-titlebar-hide-when-maximized     = true
+window-decoration                    = none
+
+# colors
+background                           = 000000
+cursor-color                         = f5d849
+background-opacity = 0.9
+background-image-position			 = center
+
+# fonts
+font-family                          = "Iosevka Nerd Font"
+font-size                            = 12
+
+# shaders
+custom-shader = shaders/glow_cursor_no_trails.glsl
+custom-shader = shaders/retro-terminal.glsl
+custom-shader-animation = true
+
+# miscs
+cursor-style-blink = true
+cursor-style = block
+shell-integration-features = no-cursor
