@@ -51,6 +51,10 @@ local menu = "rofi -show drun -show-icons"
 --
 hl.on("hyprland.start", function () 
     hl.exec_cmd("waybar & hyprpaper")
+    hl.exec_cmd("tmux new -s home")
+    hl.exec_cmd("ghostty -e tmux a")
+    --hl.exec_cmd("nvim --headless --listen /tmp/nvim_home")
+    --hl.exec_cmd("neovide --server /tmp/nvim_home")
 --   hl.exec_cmd(terminal)
 --   hl.exec_cmd("nm-applet")
 end)
@@ -92,8 +96,8 @@ hl.env("HYPRCURSOR_SIZE", "20")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
     general = {
-        gaps_in  = 0,
-        gaps_out = 0,
+        gaps_in  = 2,
+        gaps_out = 10,
 
         border_size = 2,
 
@@ -118,7 +122,7 @@ hl.config({
 
         -- Change transparency of focused and unfocused windows
         active_opacity   = 1.0,
-        inactive_opacity = 1.0,
+        inactive_opacity = 0.5,
 
         shadow = {
             enabled      = true,
@@ -187,6 +191,7 @@ hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "
 -- })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
+
 hl.config({
     dwindle = {
         preserve_split = true, -- You probably want this
@@ -267,19 +272,32 @@ local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + U", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + A", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + R", hl.dsp.window.pseudo())
-hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+hl.bind(mainMod .. " + N", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("hyprshot -m region --freeze"))
+hl.bind(mainMod .. "+ SHIFT + W", hl.dsp.exec_cmd("hyprshot -m region --freeze --clipboard-only"))
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ action = "toggle" }))
-hl.bind(mainMod .. " + A", hl.dsp.window.fullscreen({ action = "toggle", mode = "maximized" }))
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle", mode = "maximized" }))
+hl.bind(mainMod .. "+ B", hl.dsp.exec_cmd("killall -SIGUSR1 waybar || waybar"))
+hl.bind(mainMod .. "+ TAB", hl.dsp.focus({ direction = "right" }))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
+-- Move focus with mainMod + h,j,k,l keys
+hl.bind(mainMod .. "+ H", hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. "+ L", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. "+ K", hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. "+ J", hl.dsp.focus({ direction = "down" }))
+
+hl.bind(mainMod .. "+ SHIFT + H", hl.dsp.window.move({ direction = "left" }))
+hl.bind(mainMod .. "+ SHIFT + L", hl.dsp.window.move({ direction = "right" }))
+hl.bind(mainMod .. "+ SHIFT + K", hl.dsp.window.move({ direction = "up" }))
+hl.bind(mainMod .. "+ SHIFT + J", hl.dsp.window.move({ direction = "down" }))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
@@ -364,4 +382,13 @@ hl.window_rule({
 
     move  = "20 monitor_h-120",
     float = true,
+})
+
+-- Rofi animation
+hl.layer_rule({
+    match = {
+        namespace = "rofi"
+    },
+    animation = "slide right", -- Or "fade", "slide down", etc.
+    blur = true             -- Optional: adds a nice backdrop blur
 })
